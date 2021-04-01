@@ -1,0 +1,108 @@
+body {
+    color: #3d3846;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    font-family: system-ui;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 1%;
+    padding-bottom: 1.5%;
+    background-color: #003c8f;
+    color: #f6f5f4;
+}
+
+.output {
+    font-size: 30px;
+    width: 70%;
+    height: 30%;
+    border: 5px solid black;
+    font-family: monospace;
+    text-align: center;
+    padding: 30px;
+    margin: 30px;
+    display: inline-block;
+}
+
+.main-program {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.btn {
+    background-color: #003c8f;
+    display: inline-block;
+    color: #f6f5f4;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Monospace;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    border: 3px solid black;
+}
+.btn:hover {
+    background-color: #0048ad;
+}
+.btn:active {
+    position: relative;
+    top: 1px;
+}
+
+div.adjustments {
+    padding-top: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+#wordlist-select-grid {
+    display: grid;
+    font-family: system-ui;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wordlist-description {
+    font-family: system-ui;
+    font-weight: bold;
+    margin: 2%;
+    margin-top: 1%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: #003c8f;
+    color: #f6f5f4;
+    border: 2px solid black;
+}
+
+.adjustments-grid {
+    display: grid;
+    font-family: system-ui;
+    grid-template-columns: 80% 20%;
+    grid-row-gap: 5px;
+}
+
+label {
+    text-align: left;
+    align-self: center;
+}
+
+footer {
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: system-ui;
+    color: #9A9996;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: #77767B;
+}
