@@ -1,4 +1,13 @@
-/** The main variable that will be used to geenrate passphraseDefaults. */
+import Passphrase from "./res/Passphrase";
+import {
+    availableWordlists,
+    passphraseDefaults,
+    defaultWordlistIndex,
+    inputs,
+    outputs,
+} from "./configs";
+
+/** The main variable that will be used to generate passphraseDefaults. */
 let finalPassphrase = new Passphrase(
     passphraseDefaults.wordlist,
     passphraseDefaults.wordCount,
@@ -11,9 +20,9 @@ function updateAdjustments() {
     let selectedWordlistIndex = inputs.wordlist.selectedIndex;
 
     // if someone put wrong value
-    updateWordCount = (control) => {
-        minAllowed = passphraseDefaults.minWordCount;
-        maxAllowed = passphraseDefaults.maxWordCount;
+    const updateWordCount = (control) => {
+        const minAllowed = passphraseDefaults.minWordCount;
+        const maxAllowed = passphraseDefaults.maxWordCount;
 
         if (control.value <= maxAllowed && control.value >= minAllowed) {
             finalPassphrase.wordCount = control.value;
@@ -57,7 +66,7 @@ function setWebpageSelects() {
  * Aimed for using only for first page load.
  */
 function setWebpageInputs() {
-    setWordCountWithLabel = () => {
+    const setWordCountWithLabel = () => {
         // set label
         inputs.wordCountLabel.innerHTML = `Liczba słów 
             (min. ${passphraseDefaults.minWordCount}, maks. ${passphraseDefaults.maxWordCount})`;
@@ -92,7 +101,7 @@ function showWordlistDescription() {
 
 /** trigger generating new password */
 function newPassphrase() {
-    // TODO async-await
+    // TODO async-await (show clock emoji when generating a password)
     updateAdjustments();
 
     finalPassphrase.generate();

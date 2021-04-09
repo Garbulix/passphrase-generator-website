@@ -1,3 +1,7 @@
+import capitalize from "./lodash/capitalize";
+import sampleSize from "./lodash/sampleSize";
+import random from "./lodash/random";
+
 const notInitialized = [
     "NOT_INITIALIZED",
     "NOT_INITIALIZED",
@@ -6,7 +10,7 @@ const notInitialized = [
 
 const defaultSeparator = "-";
 
-class Passphrase {
+export default class Passphrase {
     constructor(
         wordlist = notInitialized,
         wordCount = 2,
@@ -25,19 +29,14 @@ class Passphrase {
     }
 
     generate() {
-        let sampledWords = [];
-
-        // sample words from dictionary
-        for (let i = 0; i < this.wordCount; i++) {
-            sampledWords.push(this.wordlist.sample());
-        }
+        let sampledWords = sampleSize(this.wordlist, this.wordCount);
 
         // capitalize words if requested
         if (this.capitalized) {
             let capitalizedWords = [];
 
             sampledWords.forEach((element) => {
-                capitalizedWords.push(capitalizeStr(element));
+                capitalizedWords.push(capitalize(element));
             });
 
             sampledWords = capitalizedWords;
@@ -45,8 +44,8 @@ class Passphrase {
 
         // insert random digit after random word
         if (this.insertNumber) {
-            let randomDigit = getRandomInt(0, 9);
-            let randomIndex = getRandomInt(0, sampledWords.length - 1);
+            let randomDigit = random(9);
+            let randomIndex = random(sampledWords.length - 1);
 
             // insert randomInt after randomIndex word
             sampledWords[randomIndex] = sampledWords[randomIndex].concat(
